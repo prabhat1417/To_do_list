@@ -1,0 +1,44 @@
+<%- include("header") -%>
+<div class="box" id="heading">
+        <h1>
+            <%= kindofday %>
+        </h1>
+    </div>
+
+    <!-- <div class="box">
+        <% for(i in newlist){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%= newlist[i] %>
+                </p>
+            </div>
+            <% } %>
+
+                <form class="item" action="/" method="post">
+                    <input type="text" name="item" placeholder="Type to add item" autocomplete="off">
+                    <button type="submit" name="button">+</button>
+                </form>
+                
+</div> -->
+<div class="box">
+    <% for(i in newlist){ %>
+        <div class="item">
+            <input type="checkbox">
+            <p class="listItem" type="text" name="newItem"><%= newlist[i].name %></p>
+            <div class="delete">
+                <form action="/deleteItem" method="POST">
+                    <button class ="button2" type="submit" name="button" value=<%= newlist[i]._id %>  >x</button>
+                </form>
+            </div>
+            
+        </div>
+    <% }; %> 
+
+    <form class="item" action="/createItem" method="POST">
+        <input type="text" name="item" placeholder="Type to add item" autocomplete="off">
+        <button class="button" type="submit" name="button">+</button>
+    </form>
+</div>
+
+<%- include("footer") -%>
